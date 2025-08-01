@@ -13,10 +13,7 @@ parsed_data = deserialize.parse(spl)
 parsed_data['version'] = spl[0]
 parsed_data['placeholder'] = spl[1]
 
-# Modify values in parsed_data here
-print(parsed_data['main_stats']['cookies'])
-print(parsed_data['main_stats']['cookies_earned'])
-
+# Modify values in parsed_data here ... 92 Billion cookies seems nice :)
 parsed_data['main_stats']['cookies']=92401719440.323624
 
 # Serialize and Encode
