@@ -12,9 +12,9 @@ Hacking is fun, and plus I thought it would be a good use-case for me to learn G
 
 ## What are you hacking?
 
-The game has an `export` function, where you can save your current progress to a long string of characers. Similarly it has an `import` function that enables you to resume your game from anywhere by loading in this string. 
+The game has an `export` function, where you can save your current progress to a long string of characers. Similarly it has an `import` function that enables you to resume your game from anywhere by loading in this string. The string looks like [this](/example_save_game.txt).
 
-Hence the string must contain all details about your current state. Which means we can modify this state -- and give yourself billions of cookies, without earning a single legitimate cookie :).
+As you can see it looks like some weirdly encoded string -- base64-ish, but something else. We'll learn more about the string later. The string **must** contain all details about your current state. Which means we can modify this state -- and give us a many cookies as we wanted. 
 
 All this diabolical-ness is getting too exciting. Let's begin.
 
@@ -43,11 +43,20 @@ After a few hours, it finally worked. The full conversation between the agent an
 
 Yes, the final python code allowed me to modify any field, to get as many cookies,buildings, and upgrades/achievements I wanted. The agent also generated documentation about the program for me.
 
+This line of code:
+
+```python
+# Modify values in parsed_data here ... 92 Billion cookies seems nice :)
+parsed_data['main_stats']['cookies']=92401719440.323624
+```
+
+Gave me this:
+
 ![Cookies](docs/images/cookies.png)
 
 ## Did the agent do all the work?
 
-No. I had to jump in occassionally to solve some problems the agent was stuck on. And I refactored and rewrote some of the code. This was more collaborative than supervisory, although I did had to supervise the agent -- it's attitude was akin to an over-eager intern.
+No. I had to jump in to solve some problems the agent was stuck on. And I refactored and rewrote some of the code. This was more collaborative than supervisory, although I did had to supervise the agent -- it's attitude was akin to an over-eager intern.
 
 ## Did the agent solve it in one prompt?
 
