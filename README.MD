@@ -2,19 +2,21 @@
 
 ## What is cookie clicker?
 
-Cookie clicker is an online browser-based game my daughter introduced me to. The objective of the game is to get as many cookies as you can. You then spend these cookies to buy upgrades that give you even more cookies. In other words, spend cookies to earn cookies -- and get as many cookies as you can.
+Cookie clicker is an browser-based game my daughter introduced me to. The objective of the game is to get as many cookies as you can. You then spend these cookies to buy upgrades that give you even more cookies. In other words, spend cookies to earn cookies -- and get as many cookies as you can.
 
-FUN!
+Fun!
 
 ## Why do you want to hack it?
 
-Hacking is fun, and plus I thought it would be a good use-case for me to learn Gemini-CLI.
+I'm lazy, and wanted to earn all these cookies without playing the game.
+
+Plus, I thought it would be a good use-case for me to learn Gemini-CLI on. So how do we hack a game?
 
 ## What are you hacking?
 
 The game has an `export` function, where you can save your current progress to a long string of characers. Similarly it has an `import` function that enables you to resume your game from anywhere by loading in this string. The string looks like [this](/example_save_game.txt).
 
-As you can see it looks like some weirdly encoded string -- base64-ish, but something else. We'll learn more about the string later. The string **must** contain all details about your current state. Which means we can modify this state -- and give us a many cookies as we wanted. 
+As you can see it looks like some weirdly encoded bunch of characters -- base64-ish, but something else. We'll learn more about the string later. The string **must** contain all details about your current state. Which means we can modify this state -- and give us a many cookies as we wanted. 
 
 All this diabolical-ness is getting too exciting. Let's begin.
 
@@ -33,11 +35,13 @@ I then bootstrapped a simple directory on my local mac with:
 * Created two folders, `/src` and `/docs`. For code and docs.
 * Copied `main.js` into the root directory.
 
-Then I started up Gemini-CLI and starting working.
+Then I started up Gemini-CLI and starting working. 
+
+For copyright purposes, I chose not to include main.js in this repo. But you can find it online.
 
 ## Did it work?
 
-After a few hours, it finally worked. The full conversation between the agent and me is [here](/conversation.md), with some annotated notes from me. It's well-worth a skim through, as some of the next points only make sense if you see examples of where the agent succeeded (and failed!)
+After about a day of ad-hoc programming, it finally worked. The full conversation between the agent and me is [here](/conversation.md), with some annotated notes from me. It's well-worth a skim through, as some of the next points only make sense if you read the conversation. I exported the conversation from the gemini-cli logs using [this script](/src/gemini_session_to_markdown.py).
 
 ## Did you manage to get all the cookies?
 
@@ -56,7 +60,7 @@ Gave me this:
 
 ## Did the agent do all the work?
 
-No. I had to jump in to solve some problems the agent was stuck on. And I refactored and rewrote some of the code. This was more collaborative than supervisory, although I did had to supervise the agent -- it's attitude was akin to an over-eager intern.
+No. I had to jump in to solve some problems the agent was stuck on. And I refactored and rewrote some of the code. This was more collaborative than supervisory, although I did had to supervise the agent -- it's attitude was akin to an over-eager intern, trying to temper down the excitement was a real challenge for me.
 
 ## Did the agent solve it in one prompt?
 
@@ -105,7 +109,7 @@ Everyone knows at least one Agile practioner who took agile a bit too dogmatical
 
 Asking the agent to perform big changes increases the chances of the agent looping forever. Big changes also mean more lines for me to read, which reduces the probability of me actually reading everything (or anything!)
 
-I'm definitely in the small-changes camp. I know some folks prefer spending time writing up the detail specification for the AI to write -- but if you wouldn't like to merge a 10,000 line PR, why ask the agent to generate 10,000 lines of code in one go.
+I know some folks prefer spending time writing up the detail specification for the AI to write -- but if you wouldn't like to merge a 10,000 line PR, why ask the agent to generate 10,000 lines of code in one go.
 
 ## Guide the Agent
 
@@ -113,7 +117,9 @@ I've learnt over the years that there is one (maybe two) ways of doing things ri
 
 Everyone gets things wrong in their own unique way. Which means when an AI agent (trained on pattern recognition) sees a new 'hack' of an application, it probably doesn't have a clear understanding of what's going on, or how to address it. 
 
-In this case, the agent hung trying to decode a file because the original author of `main.js` did a 'hacky' encoding of the string. It's only after you guide the agent was it able to resolve the issue. It's also the reason why I believe it's impossible to one-shot the solution to this problem. In this guide wasn't telling the agent what to do -- but asking it how it knows what it thinks it knows for sure.
+In this case, the agent hung trying to decode a file because the original author of `main.js` did a 'hacky' encoding of the string. It's only after you guide the agent was it able to resolve the issue. It's also the reason why I believe it's impossible to one-shot the solution to this problem. 
+
+My 'guiding the agent' wasn't telling the agent what to do -- but asking it how it knows what it thinks it knows for sure. Just like any human, as it thinks about some area deeply, it gets insights and solves the problem. This is very eerily human -- not suprehuman -- but human!
 
 ## Refactoring is harder when code isn't yours
 
@@ -121,9 +127,15 @@ In this case, the agent hung trying to decode a file because the original author
 
 It was hard for me to refactor the code, because I didn't write it -- so I didn't know what I could rewrite or remove.
 
-This is why I had to write the test before refactoring. Maybe I should have asked the agent to write the test as well, and execute if before begining my refactoring. Maybe TDD might make a comeback with these agents. If a human writes the test, and the agents work their darnest to make the test pass -- then maybe we solve some of the problems :).
+This is why I had to write the test before refactoring. Maybe I should have asked the agent to write the test as well, and execute if before begining my refactoring. \
+
+Perhaps TDD might make a comeback with these agents. If a human writes the test, and the agents work their darnest to make the test pass -- then maybe we solve some of the problems -- or introduce newer ones. Who knows! This is all too exciting for now.
 
 ## Vibe-coding can be addictive
 
 At one point, I was resistant to actually make code changes. I noticed that I would rather ask the agent to do something than do it myself, even though it was a one liner change. I know people who can't drive 15 minutes from their home without a GPS map guiding them -- I'm afraid of the brain athrophy I would get if I vibe-code and no longer write the code with my own fingers.
+
+Or maybe it was the fact, that developers have a natural resistance to touch someone else code. Especially the level of that code isn't as good as yours (low-key brag alert!). 
+
+Either way, at some point, there is hesistation to actually code when you can just fire off commands and watch. This is perhaps the single biggest danger of 'vibe-coding'. 
 
