@@ -70,6 +70,14 @@ There were 3 points in the conversation where the agent was caught in loop, and 
 
 This is real code from the real-world, which means there's going to be real-world hacks and mistakes, something the agent didn't know how to handle well.
 
+## How much did it cost?
+
+See for youself:
+
+![Tokens](docs/images/final_tokens.png)
+
+I'm not how much in dollars that might cost though, but I'm guesssing somewhere between $5-$10 dollars.
+
 #  Lessons
 
 ## Research before doing
