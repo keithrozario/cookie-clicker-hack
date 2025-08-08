@@ -1,5 +1,7 @@
 # Background
 
+I decided to learn [Gemini-CLI](https://github.com/google-gemini/gemini-cli), by using it in a real-world experience. Less about building something neat from scratch, but something that required looking at current existing real-world code.
+
 ## What is cookie clicker?
 
 Cookie clicker is an browser-based game my daughter introduced me to. The objective of the game is to get as many cookies as you can. You then spend these cookies to buy upgrades that give you even more cookies. In other words, spend cookies to earn cookies -- and get as many cookies as you can.
