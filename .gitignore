@@ -13,3 +13,6 @@ wheels/
 output.txt
 .python-version
 .vscode
+
+.DS_Store
+

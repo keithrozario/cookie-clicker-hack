@@ -18,3 +18,4 @@
 ## Code Changes
 * If the duration for code changes takes longer than 3 minutes. Stop coding and ask the user for more information.
 * Do not attempt to fix the same block of code more than 3 times.
+
